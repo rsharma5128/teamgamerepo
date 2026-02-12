@@ -3,7 +3,7 @@ import GameEnvBackground from '/assets/js/GameEnginev1/essentials/GameEnvBackgro
         import Npc from '/assets/js/GameEnginev1/essentials/Npc.js';
         import Barrier from '/assets/js/GameEnginev1/essentials/Barrier.js';
 
-class GameLevelCustom {
+class MurderMysteryL3 {
     constructor(gameEnv) {
         const path = gameEnv.path;
         const width = gameEnv.innerWidth;
@@ -132,4 +132,4 @@ this.classes = [      { class: GameEnvBackground, data: bgData },
     }
 }
 
-export const gameLevelClasses = [GameLevelCustom];
+export default MurderMysteryL3;

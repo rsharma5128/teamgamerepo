@@ -190,3 +190,6 @@ this.classes = [      { class: GameEnvBackground, data: bgData },
 }
 
 export const gameLevelClasses = [GameLevelCustom];
+
+// Default export for consumers that import the module as a single class
+export default GameLevelCustom;

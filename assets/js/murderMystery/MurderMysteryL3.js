@@ -1,4 +1,3 @@
-
 import GameEnvBackground from '/assets/js/GameEnginev1/essentials/GameEnvBackground.js';
 import Player from '/assets/js/GameEnginev1/essentials/Player.js';
 import Npc from '/assets/js/GameEnginev1/essentials/Npc.js';
@@ -12,39 +11,39 @@ class GameLevelCustom {
 
         const bgData = {
             name: "custom_bg",
-            src: path + "/images/gamebuilder/bg/alien_planet.jpg",
-            pixels: { height: 772, width: 1134 }
+            src: path + "/images/gamebuilder/bg/clouds.jpg",
+            pixels: { height: 720, width: 1280 }
         };
 
         const playerData = {
             id: 'playerData',
             src: path + "/images/gamebuilder/sprites/kirby.png",
-            SCALE_FACTOR: 11,
+            SCALE_FACTOR: 10,
             STEP_FACTOR: 1000,
             ANIMATION_RATE: 50,
             INIT_POSITION: { x: 100, y: 300 },
             pixels: { height: 36, width: 569 },
             orientation: { rows: 1, columns: 13 },
-            down: { row: 0, start: 0, columns: 1 },
-            downRight: { row: 0, start: 0, columns: 1, rotate: Math.PI/16 },
-            downLeft: { row: 0, start: 0, columns: 1, rotate: -Math.PI/16 },
-            left: { row: 0, start: 0, columns: 1 },
-            right: { row: 0, start: 0, columns: 1 },
-            up: { row: 0, start: 0, columns: 1 },
-            upLeft: { row: 0, start: 0, columns: 1, rotate: Math.PI/16 },
-            upRight: { row: 0, start: 0, columns: 1, rotate: -Math.PI/16 },
+            down: { row: 0, start: 0, columns: 3 },
+            downRight: { row: 0, start: 0, columns: 3, rotate: Math.PI/16 },
+            downLeft: { row: 0, start: 0, columns: 3, rotate: -Math.PI/16 },
+            left: { row: 0, start: 0, columns: 3 },
+            right: { row: 0, start: 0, columns: 3 },
+            up: { row: 0, start: 0, columns: 3 },
+            upLeft: { row: 0, start: 0, columns: 3, rotate: Math.PI/16 },
+            upRight: { row: 0, start: 0, columns: 3, rotate: -Math.PI/16 },
             hitbox: { widthPercentage: 0, heightPercentage: 0 },
             keypress: { up: 87, left: 65, down: 83, right: 68 }
             };
 
         const npcData1 = {
             id: 'Monk',
-            greeting: 'im a monk',
-            src: path + "/images/gamebuilder/sprites/astro.png",
-            SCALE_FACTOR: 15,
+            greeting: 'im a monk i dont trust u go do the maze thats invisible(change this)',
+            src: path + "/images/gamify/tux.png",
+            SCALE_FACTOR: 8,
             ANIMATION_RATE: 50,
             INIT_POSITION: { x: 500, y: 300 },
-            pixels: { height: 770, width: 513 },
+            pixels: { height: 256, width: 352 },
             orientation: { rows: 8, columns: 11 },
             down: { row: 0, start: 0, columns: 3 },
             right: { row: Math.min(1, 8 - 1), start: 0, columns: 3 },
@@ -55,48 +54,54 @@ class GameLevelCustom {
             upLeft: { row: Math.min(2, 8 - 1), start: 0, columns: 3 },
             downLeft: { row: 0, start: 0, columns: 3 },
             hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
-            dialogues: ['im a monk'],
+            dialogues: ['im a monk i dont trust u go do the maze thats invisible(change this)'],
             reaction: function() { if (this.dialogueSystem) { this.showReactionDialogue(); } else { console.log(this.greeting); } },
             interact: function() { if (this.dialogueSystem) { this.showRandomDialogue(); } }
         };
         const dbarrier_1 = {
-            id: 'dbarrier_1', x: 10, y: 509, width: 631, height: 29, visible: true /* BUILDER_DEFAULT */,
+            id: 'dbarrier_1', x: 4, y: 509, width: 670, height: 35, visible: true /* BUILDER_DEFAULT */,
             hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
             fromOverlay: true
         };
 
         const dbarrier_2 = {
-            id: 'dbarrier_2', x: 619, y: 279, width: 23, height: 227, visible: true /* BUILDER_DEFAULT */,
+            id: 'dbarrier_2', x: 646, y: 208, width: 30, height: 297, visible: true /* BUILDER_DEFAULT */,
             hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
             fromOverlay: true
         };
 
         const dbarrier_3 = {
-            id: 'dbarrier_3', x: 5, y: 261, width: 417, height: 22, visible: true /* BUILDER_DEFAULT */,
+            id: 'dbarrier_3', x: 1, y: 258, width: 363, height: 14, visible: true /* BUILDER_DEFAULT */,
             hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
             fromOverlay: true
         };
 
         const dbarrier_4 = {
-            id: 'dbarrier_4', x: 398, y: 27, width: 18, height: 230, visible: true /* BUILDER_DEFAULT */,
+            id: 'dbarrier_4', x: 337, y: 8, width: 26, height: 248, visible: true /* BUILDER_DEFAULT */,
             hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
             fromOverlay: true
         };
 
         const dbarrier_5 = {
-            id: 'dbarrier_5', x: 419, y: 29, width: 435, height: 17, visible: true /* BUILDER_DEFAULT */,
+            id: 'dbarrier_5', x: 361, y: 13, width: 529, height: 23, visible: true /* BUILDER_DEFAULT */,
             hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
             fromOverlay: true
         };
 
         const dbarrier_6 = {
-            id: 'dbarrier_6', x: 834, y: 45, width: 27, height: 872, visible: true /* BUILDER_DEFAULT */,
+            id: 'dbarrier_6', x: 877, y: 31, width: 14, height: 667, visible: true /* BUILDER_DEFAULT */,
             hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
             fromOverlay: true
         };
 
         const dbarrier_7 = {
-            id: 'dbarrier_7', x: 301, y: 830, width: 534, height: 83, visible: true /* BUILDER_DEFAULT */,
+            id: 'dbarrier_7', x: 879, y: 692, width: 12, height: 78, visible: true /* BUILDER_DEFAULT */,
+            hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
+            fromOverlay: true
+        };
+
+        const dbarrier_8 = {
+            id: 'dbarrier_8', x: 275, y: 741, width: 613, height: 24, visible: true /* BUILDER_DEFAULT */,
             hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
             fromOverlay: true
         };
@@ -109,7 +114,8 @@ this.classes = [      { class: GameEnvBackground, data: bgData },
       { class: Barrier, data: dbarrier_4 },
       { class: Barrier, data: dbarrier_5 },
       { class: Barrier, data: dbarrier_6 },
-      { class: Barrier, data: dbarrier_7 }
+      { class: Barrier, data: dbarrier_7 },
+      { class: Barrier, data: dbarrier_8 }
 ];
 
         /* BUILDER_ONLY_START */

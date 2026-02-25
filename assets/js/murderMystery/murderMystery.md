@@ -1,7 +1,7 @@
 ---
 layout: opencs
 title: Murder Mystery Game 
-permalink: /gamify/murdermystery
+permalink: /gamify/murderMystery
 ---
 
 <div id="gameContainer">
@@ -11,25 +11,37 @@ permalink: /gamify/murdermystery
 
 <script type="module">
 
-    // Adnventure Game assets locations
+    // Adventure Game assets locations
     import Game from "/assets/js/GameEnginev1/essentials/Game.js";
     import MurderMysteryL3 from "/assets/js/murderMystery/MurderMysteryL3.js";
     import { pythonURI, javaURI, fetchOptions } from '/assets/js/api/config.js';
 
     const gameLevelClasses = [MurderMysteryL3];
 
-    // Web Server Environment data
+    // Web Server Environment datas
     const environment = {
-        path:"{{site.baseurl}}",
+        path: "{{site.baseurl}}",
         pythonURI: pythonURI,
         javaURI: javaURI,
         fetchOptions: fetchOptions,
         gameContainer: document.getElementById("gameContainer"),
         gameCanvas: document.getElementById("gameCanvas"),
-        gameLevelClasses: gameLevelClasses
-
+        gameLevelClasses: gameLevelClasses,
+        // Game UI configuration
+        gameUI: {
+            showNavigation: true,
+            showLevelSelect: true,
+            showInfo: true,
+            homeUrl: "/gamify/murderMystery",
+            gameInfo: {
+                title: "Murder Mystery Game",
+                version: "1.0",
+                developer: "DNHS CSSE Feb 2026",
+                controls: "Use WASD keys to move your character."
+            }
+        }
     }
-    // Launch Adventure Game and keep the returned Game instance
-    const game = Game.main(environment);
 
+    // Launch Adventure Game
+    const game = Game.main(environment);
 </script>

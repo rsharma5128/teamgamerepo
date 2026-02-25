@@ -1,66 +1,117 @@
-import GameEnvBackground from '/assets/js/GameEnginev1/essentials/GameEnvBackground.js';
-        import Player from '/assets/js/GameEnginev1/essentials/Player.js';
-        import Npc from '/assets/js/GameEnginev1/essentials/Npc.js';
-        import Barrier from '/assets/js/GameEnginev1/essentials/Barrier.js';
 
-class MurderMysteryL3 {
+import GameEnvBackground from '/assets/js/GameEnginev1/essentials/GameEnvBackground.js';
+import Player from '/assets/js/GameEnginev1/essentials/Player.js';
+import Npc from '/assets/js/GameEnginev1/essentials/Npc.js';
+import Barrier from '/assets/js/GameEnginev1/essentials/Barrier.js';
+
+class GameLevelCustom {
     constructor(gameEnv) {
         const path = gameEnv.path;
         const width = gameEnv.innerWidth;
         const height = gameEnv.innerHeight;
+
         const bgData = {
-            name: 'custom_bg',
-            src: path + "/images/murderMystery/L3Enterance.png",
+            name: "custom_bg",
+            src: path + "/images/gamebuilder/bg/alien_planet.jpg",
             pixels: { height: 772, width: 1134 }
         };
+
         const playerData = {
-            id: 'Archie',
-            src: path + "/images/murderMystery/mcarchie.png",
-            SCALE_FACTOR: 8,
-            STEP_FACTOR: 1000,
-            ANIMATION_RATE: 6.5,
-            INIT_POSITION: { x: 350, y: 400 },
-            pixels: { height: 256, width: 256 },
-            orientation: { rows: 4, columns: 4 },
-            down: { row: 0, start: 0, columns: 4 },
-            right: { row: Math.min(2, 4 - 1), start: 0, columns: 4 },
-            left: { row: Math.min(1, 4 - 1), start: 0, columns: 4 },
-            up: { row: Math.min(3, 4 - 1), start: 0, columns: 4 },
-            downRight: { row: Math.min(2, 4 - 1), start: 0, columns: 3, rotate: Math.PI/16 },
-            downLeft: { row: Math.min(1, 4 - 1), start: 0, columns: 3, rotate: -Math.PI/16 },
-            upRight: { row: Math.min(2, 4 - 1), start: 0, columns: 3, rotate: -Math.PI/16 },
-            upLeft: { row: Math.min(1, 4 - 1), start: 0, columns: 3, rotate: Math.PI/16 },
-            hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
-            keypress: { up: 87, left: 65, down: 83, right: 68 }
-        };
+            id: 'playerData',
+            src: path + "/images/gamebuilder/sprites/kirby.png",
+            SCALE_FACTOR: 11,
+            STEP_FACTOR: 1000,
+            ANIMATION_RATE: 50,
+            INIT_POSITION: { x: 100, y: 300 },
+            pixels: { height: 36, width: 569 },
+            orientation: { rows: 1, columns: 13 },
+            down: { row: 0, start: 0, columns: 1 },
+            downRight: { row: 0, start: 0, columns: 1, rotate: Math.PI/16 },
+            downLeft: { row: 0, start: 0, columns: 1, rotate: -Math.PI/16 },
+            left: { row: 0, start: 0, columns: 1 },
+            right: { row: 0, start: 0, columns: 1 },
+            up: { row: 0, start: 0, columns: 1 },
+            upLeft: { row: 0, start: 0, columns: 1, rotate: Math.PI/16 },
+            upRight: { row: 0, start: 0, columns: 1, rotate: -Math.PI/16 },
+            hitbox: { widthPercentage: 0, heightPercentage: 0 },
+            keypress: { up: 87, left: 65, down: 83, right: 68 }
+            };
 
         const npcData1 = {
             id: 'Monk',
-            greeting: 'This maze is so fun and the end is beautiful.  Your going to love it!',
-            src: path + "/images/murderMystery/monk.png",
-            SCALE_FACTOR: 8,
+            greeting: 'im a monk',
+            src: path + "/images/gamebuilder/sprites/astro.png",
+            SCALE_FACTOR: 15,
             ANIMATION_RATE: 50,
             INIT_POSITION: { x: 500, y: 300 },
-            pixels: { height: 225, width: 225 },
-            orientation: { rows: 4, columns: 4 },
+            pixels: { height: 770, width: 513 },
+            orientation: { rows: 8, columns: 11 },
             down: { row: 0, start: 0, columns: 3 },
-            right: { row: Math.min(1, 4 - 1), start: 0, columns: 3 },
-            left: { row: Math.min(2, 4 - 1), start: 0, columns: 3 },
-            up: { row: Math.min(3, 4 - 1), start: 0, columns: 3 },
-            upRight: { row: Math.min(3, 4 - 1), start: 0, columns: 3 },
-            downRight: { row: Math.min(1, 4 - 1), start: 0, columns: 3 },
-            upLeft: { row: Math.min(2, 4 - 1), start: 0, columns: 3 },
+            right: { row: Math.min(1, 8 - 1), start: 0, columns: 3 },
+            left: { row: Math.min(2, 8 - 1), start: 0, columns: 3 },
+            up: { row: Math.min(3, 8 - 1), start: 0, columns: 3 },
+            upRight: { row: Math.min(3, 8 - 1), start: 0, columns: 3 },
+            downRight: { row: Math.min(1, 8 - 1), start: 0, columns: 3 },
+            upLeft: { row: Math.min(2, 8 - 1), start: 0, columns: 3 },
             downLeft: { row: 0, start: 0, columns: 3 },
             hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
-            zIndex: 12,
-            dialogues: ['This maze is so fun and the end is beautiful.  Your going to love it!'],
+            dialogues: ['im a monk'],
             reaction: function() { if (this.dialogueSystem) { this.showReactionDialogue(); } else { console.log(this.greeting); } },
             interact: function() { if (this.dialogueSystem) { this.showRandomDialogue(); } }
         };
+        const dbarrier_1 = {
+            id: 'dbarrier_1', x: 10, y: 509, width: 631, height: 29, visible: true /* BUILDER_DEFAULT */,
+            hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
+            fromOverlay: true
+        };
+
+        const dbarrier_2 = {
+            id: 'dbarrier_2', x: 619, y: 279, width: 23, height: 227, visible: true /* BUILDER_DEFAULT */,
+            hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
+            fromOverlay: true
+        };
+
+        const dbarrier_3 = {
+            id: 'dbarrier_3', x: 5, y: 261, width: 417, height: 22, visible: true /* BUILDER_DEFAULT */,
+            hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
+            fromOverlay: true
+        };
+
+        const dbarrier_4 = {
+            id: 'dbarrier_4', x: 398, y: 27, width: 18, height: 230, visible: true /* BUILDER_DEFAULT */,
+            hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
+            fromOverlay: true
+        };
+
+        const dbarrier_5 = {
+            id: 'dbarrier_5', x: 419, y: 29, width: 435, height: 17, visible: true /* BUILDER_DEFAULT */,
+            hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
+            fromOverlay: true
+        };
+
+        const dbarrier_6 = {
+            id: 'dbarrier_6', x: 834, y: 45, width: 27, height: 872, visible: true /* BUILDER_DEFAULT */,
+            hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
+            fromOverlay: true
+        };
+
+        const dbarrier_7 = {
+            id: 'dbarrier_7', x: 301, y: 830, width: 534, height: 83, visible: true /* BUILDER_DEFAULT */,
+            hitbox: { widthPercentage: 0.0, heightPercentage: 0.0 },
+            fromOverlay: true
+        };
 this.classes = [      { class: GameEnvBackground, data: bgData },
       { class: Player, data: playerData },
-      { class: Npc, data: npcData1 }
+      { class: Npc, data: npcData1 },
+      { class: Barrier, data: dbarrier_1 },
+      { class: Barrier, data: dbarrier_2 },
+      { class: Barrier, data: dbarrier_3 },
+      { class: Barrier, data: dbarrier_4 },
+      { class: Barrier, data: dbarrier_5 },
+      { class: Barrier, data: dbarrier_6 },
+      { class: Barrier, data: dbarrier_7 }
 ];
+
         /* BUILDER_ONLY_START */
         // Post object summary to builder (debugging visibility of NPCs/walls)
         try {
@@ -132,4 +183,4 @@ this.classes = [      { class: GameEnvBackground, data: bgData },
     }
 }
 
-export default MurderMysteryL3;
+export const gameLevelClasses = [GameLevelCustom];
